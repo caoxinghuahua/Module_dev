@@ -32,8 +32,8 @@ public class HttpManger {
         client=okhttpBuilder.build();
         retrofitBuilder=new Retrofit.Builder()
         .client(client)
-//        .addCallAdapterFactory( RxJavaCallAdapterFactory.create())
-//        .addConverterFactory(Str)
+        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(baseUrl);
         retrofit=retrofitBuilder.build();
     }

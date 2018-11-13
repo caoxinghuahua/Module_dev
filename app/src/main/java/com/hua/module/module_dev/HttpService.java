@@ -1,5 +1,7 @@
 package com.hua.module.module_dev;
 
+import com.google.gson.JsonObject;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 
@@ -9,5 +11,5 @@ import retrofit2.http.GET;
  */
 public interface HttpService {
     @GET("/api/mm/pickListTop")
-    Call<String> getPickListTopData();
+    Call<JsonObject> getPickListTopData();
 }

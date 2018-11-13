@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.google.gson.JsonObject;
 import com.hua.module.basemodule.HttpManger;
 
 import retrofit2.Call;
@@ -35,15 +36,15 @@ public class MainActivity extends Activity implements View.OnClickListener{
     }
     private void initData(){
         HttpService httpService=HttpManger.getInstance().create(HttpService.class);
-        Call<String> call=httpService.getPickListTopData();
-        call.enqueue(new Callback<String>() {
+        Call<JsonObject> call=httpService.getPickListTopData();
+        call.enqueue(new Callback<JsonObject>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 Log.i("xxx","res:"+response.body());
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<JsonObject> call, Throwable t) {
 
             }
         });
